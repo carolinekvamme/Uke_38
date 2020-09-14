@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <style>
+        body{
+            background-color: #545C52;
+        }
+        #grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #main{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 40%; 
+            margin: auto; 
+            height: 180px; 
+            grid-gap: 5px; 
+            margin-top: 10%;
+        }
+        #downGrid{
+            display: grid;
+            grid-template-rows: 0.8fr 0.8fr 1fr;
+        }
+        #tekstUt{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: white; 
+            margin-top: 38px;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white; 
+            margin-top: 10px; 
+        }
+        button, #symbol{
+            font-size: 30px;
+        }
+        #sum{
+            display: grid;
+            grid-template-columns: 0.2fr 1fr;
+        }
+        #symbol{
+            color: white; 
+            margin-left: auto;
+            margin-right: 5%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Kalkulator</h1>
+    <section id="main">
+        <section id="grid">
+            <button id="gange">&#215;</button>
+            <button id="dele">&#247;</button>
+            <button id="pluss">&#8722;</button>
+            <button id="minus">&#43;</button>
+        </section>
+        <section id="downGrid">
+            <input id="inpTall1" type="number" placeholder="Skriv inn tallet ditt her">
+            <input id="inpTall2" type="number" placeholder="Skriv inn tallet ditt her">
+            <section id="sum">
+                <p id="symbol">&#61;</p>
+                <p id="tekstUt"></p>
+            </section>
+        </section>
+
+    </section>
+    <script>
+        var gange = document.getElementById("gange");
+        var dele = document.getElementById("dele");
+        var pluss = document.getElementById("pluss");
+        var minus = document.getElementById("minus");
+        var tekstUt = document.getElementById("tekstUt");
+        var inpTall1 = document.getElementById("inpTall1");
+        var inpTall2 = document.getElementById("inpTall2");
+
+        function presenterTall0() {
+            tekstUt.innerHTML = Number(inpTall1.value) - Number(inpTall2.value);
+        }
+        function presenterTall1() {
+            tekstUt.innerHTML = Number(inpTall1.value) + Number(inpTall2.value);
+        }
+        function presenterTall2() {
+            tekstUt.innerHTML = Number(inpTall1.value) * Number(inpTall2.value);
+        }
+        function presenterTall3() {
+            tekstUt.innerHTML = Number(inpTall1.value) / Number(inpTall2.value);
+        }
+
+        pluss.onclick = presenterTall0;
+        minus.onclick = presenterTall1;
+        gange.onclick = presenterTall2;
+        dele.onclick = presenterTall3;
+
+    </script>
+    
+</body>
+</html>
